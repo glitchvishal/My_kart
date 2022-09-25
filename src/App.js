@@ -30,8 +30,8 @@ function App() {
     },
   ]
 
-  let [productList, setProductList] = useState(products)
-  let [ totalAmount, setTotalAmount] = useState(0)
+  let [ productList, setProductList ] = useState(products)
+  let [ totalAmount, setTotalAmount ] = useState(0)
 
   const incrementQuantity = (index)=>{
     let newProductList = [...productList]
