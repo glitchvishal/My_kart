@@ -2,12 +2,12 @@ import './App.css';
 import Navbar from './components/Navbar';
 import React,{useState} from 'react';
 // import Product from './components/Product';
-import ProductList from './components/ProductList.jsx';
+import ProductList from './components/ProductList'
 import Footer from './components/Footer'
 
 
 function App() {
-  const ProductList = [
+  const products = [
     {
       price: 99999,
       name: 'iphone ultra pro max',
@@ -30,17 +30,21 @@ function App() {
     },
   ]
 
-  let [productList, setProductList] = useState(ProductList)
+  let [productList, setProductList] = useState(products)
   let [ totalAmount, setTotalAmount] = useState(0)
 
   const incrementQuantity = (index)=>{
     let newProductList = [...productList]
+    let newTotalAmount = [...totalAmount]
     newProductList[index].quantity++
+    newTotalAmount += newProductList[index].price
+    setTotalAmount(newTotalAmount)
     setProductList(newProductList)
   }
 
   const decrementQuantity = (index)=>{
     let newProductList = [...productList]
+    let newTotalAmount = [...totalAmount]
     newProductList[index].quantity > 0 ? newProductList[index].quantity--: newProductList[index].quantity = 0
     setProductList(newProductList)
   }
@@ -50,9 +54,9 @@ function App() {
     <>
     <Navbar />
     <main className="container mt-5"> 
-      <ProductList productList={productList}  incrementQuantity = {this.incrementQuantity}  decrementQuantity = {this.decrementQuantity}/>
+    <ProductList productList={productList} incrementQuantity = {incrementQuantity}  decrementQuantity = {decrementQuantity} />
     </main>
-    <Footer />
+    <Footer totalAmount ={totalAmount} />
     </>
   );
 }
