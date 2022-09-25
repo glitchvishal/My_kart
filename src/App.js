@@ -35,18 +35,16 @@ function App() {
 
   const incrementQuantity = (index)=>{
     let newProductList = [...productList]
-    let newTotalAmount = [...totalAmount]
     newProductList[index].quantity++
-    newTotalAmount += newProductList[index].price
-    setTotalAmount(newTotalAmount)
     setProductList(newProductList)
   }
 
   const decrementQuantity = (index)=>{
     let newProductList = [...productList]
-    let newTotalAmount = [...totalAmount]
-    newProductList[index].quantity > 0 ? newProductList[index].quantity--: newProductList[index].quantity = 0
+    // let newTotalAmount = [...totalAmount]
+    newProductList[index].quantity > 0 ? newProductList[index].quantity-- : newProductList[index]
     setProductList(newProductList)
+    setTotalAmount(newAmount)
   }
 
   
