@@ -4,6 +4,7 @@ import React,{useState, useEffect} from 'react';
 // import Product from './components/Product';
 import ProductList from './components/ProductList'
 import Footer from './components/Footer'
+import Additem from './components/Additem';
 
 
 function App() {
@@ -58,12 +59,23 @@ function App() {
     setTotalAmount(0)
   }
 
+  const removeItem = (index) => {
+    let newProductList = [...productList]
+    let newTotalAmount = totalAmount
+
+    newTotalAmount -= newProductList[index].quantity * newProductList[index].price
+    newProductList.splice(index, 1)
+    setProductList(newProductList)
+    setTotalAmount(newTotalAmount)
+  }
+
   
   return (
     <>
     <Navbar />
     <main className="container mt-5"> 
-    <ProductList productList={productList} incrementQuantity = {incrementQuantity}  decrementQuantity = {decrementQuantity} />
+    <Additem/>
+    <ProductList productList={productList} incrementQuantity = {incrementQuantity}  decrementQuantity = {decrementQuantity} removeItem={removeItem} />
     </main>
     <Footer totalAmount = {totalAmount} resetQuantity = {resetQuantity}/>
     </>
