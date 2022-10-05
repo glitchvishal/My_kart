@@ -11,22 +11,22 @@ function App() {
   const products = [
     {
       price: 99999,
-      name: 'iphone ultra pro max',
+      name: 'iphone pro max',
       quantity: 0,
     },
     {
       price: 9999,
-      name: 'redmenote 10 ultra pro max',
+      name: 'redmenote 10',
       quantity: 0,
     },
     {
       price: 8799,
-      name: 'Mi ultra pro max',
+      name: 'Mi max',
       quantity: 0,
     },
     {
       price: 99999,
-      name: 'realme 11 ultra pro max',
+      name: 'realme 11 pro',
       quantity: 0,
     },
   ]
